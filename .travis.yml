@@ -14,14 +14,8 @@ cache:
 
 script: "./gradlew clean build"
 
-# CI ㅅㅣㄹ행 완료 시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - "realblue82@gmail.com"
-
 before_deploy:
-  - zip -r springboot_webservice
+  - zip -r springboot_webservice *
   - mkdir -p deploy
   - mv springboot_webservice.zip deploy/springboot_webservice.zip
 
@@ -35,3 +29,9 @@ deploy:
     acl: private # zip access private setting
     local_dir: deploy # before_deploy setting directory
     wait-until-deployed: true
+
+# CI 실행 완료 시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - "realblue82@gmail.com"
