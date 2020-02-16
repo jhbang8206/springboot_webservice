@@ -21,9 +21,9 @@ notifications:
       - "realblue82@gmail.com"
 
 before_deploy:
-  - zip -r springboot-webservice-book
+  - zip -r springboot_webservice
   - mkdir -p deploy
-  - mv springboot-webservice-book.zip deploy/springboot-webservice-book.zip
+  - mv springboot_webservice.zip deploy/springboot_webservice.zip
 
 deploy:
   - provider: s3
