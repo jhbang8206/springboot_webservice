@@ -23,7 +23,7 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY # Travis repo setting value
     secret_access_key: $AWS_SECRET_KEY #Travis repo setting value
-    bucket: springboot-webservice-book-build # s3 bucket
+    bucket: springboot-webserivce-book-build # s3 bucket
     region: ap-northeast-2
     skip_cleanup: true
     acl: private # zip access private setting
