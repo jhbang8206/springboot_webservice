@@ -30,16 +30,16 @@ deploy:
     local_dir: deploy # before_deploy setting directory
     wait-until-deployed: true
 
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY # Travis repo setting value
-    secret_access_key: $AWS_SECRET_KEY # Travis repo setting value
-    bucket: springboot-webserivce-book-build    # s3 bucket
-    key: springboot_webservice.zip
-    bundle_type: zip # 압축 확장자
-    application: springboot-webservice-book
-    deployment_group: springboot-webservice-book-group
-    region: ap-northeast-2
-    wait-until-deployed: true
+#  - provider: codedeploy
+#    access_key_id: $AWS_ACCESS_KEY # Travis repo setting value
+    #    secret_access_key: $AWS_SECRET_KEY # Travis repo setting value
+    #bucket: springboot-webserivce-book-build    # s3 bucket
+    #key: springboot_webservice.zip
+    #bundle_type: zip # 압축 확장자
+    #application: springboot-webservice-book
+    #deployment_group: springboot-webservice-book-group
+    #region: ap-northeast-2
+    #wait-until-deployed: true
 
 # CI 실행 완료 시 메일로 알람
 notifications:
