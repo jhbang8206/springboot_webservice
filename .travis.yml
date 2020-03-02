@@ -15,9 +15,16 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r springboot_webservice *
-  - mkdir -p deploy
-  - mv springboot_webservice.zip deploy/springboot_webservice.zip
+  - mkdir -p before-deploy # zip에 포함시킬 파일을 담을 디렉토리 생성
+  - cd scripts/*.sh before-deploy/
+  - cd appspec.yml before-deploy/
+  - cd build/libs/*.jar before-deploy/
+  - cd before-deploy && zip -r before-deploy * # before-deploy로 이동 후 전체 압축
+  - cd ../ && mkdir -p deploy # 상위 디렉토리 이동 후 deploy디렉토리 생성
+  - mv before-deploy/before-deploy.zip deploy/springboot_webservice.zip
+  #- zip -r springboot_webservice *
+  #- mkdir -p deploy
+  #- mv springboot_webservice.zip deploy/springboot_webservice.zip
 
 deploy:
   - provider: s3
